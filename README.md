@@ -1,4 +1,4 @@
-# dodger
+# Dodger
 
 It's the first game of the list games to practice how to implement games with Godot engine.
 
