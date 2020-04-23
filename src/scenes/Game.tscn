@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://src/scenes/BaddieSpawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/scenes/HUD.gd" type="Script" id=4]
+[ext_resource path="res://assets/sounds/gameover.wav" type="AudioStream" id=5]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -69,3 +70,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )

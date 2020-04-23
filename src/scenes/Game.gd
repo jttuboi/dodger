@@ -1,11 +1,12 @@
 extends Node2D
 
+var died := false
+
 onready var Baddies := $Baddies
 onready var BaddieSpawner := $BaddieSpawner
 onready var HUD := $HUD
 onready var Player := $Player
-
-var died := false
+onready var GameOverSound := $GameOverSound
 
 
 
@@ -20,7 +21,11 @@ func _input(event: InputEvent):
 		HUD.restart_hud()
 		Player.restart_position()
 		
+		if GameOverSound.playing:
+			GameOverSound.stop()
+		
 		_clean_spawner()
+		
 		died = false
 
 
@@ -30,4 +35,7 @@ func _clean_spawner():
 
 
 func _on_Events_player_has_hit():
+	if not died:
+		GameOverSound.play()
+	
 	died = true
